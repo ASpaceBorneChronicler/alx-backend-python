@@ -20,4 +20,14 @@ Thumbs.db
 *.swp
 *.recovered
 
-.__pyache__
+__pyache__/
+.gitignore
+*.sqlite3
+*.egg-info
+*.egg
+*.spec
+*.log
+*.pot
+*.mo
+*.pyc
+*.pyo
