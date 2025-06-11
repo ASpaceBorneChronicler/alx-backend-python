@@ -1,21 +1,26 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
-class User(models.Model):
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
-    email = models.CharField(max_length=100)
-    password = models.CharField(max_length=100)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+class User(AbstractUser):
+    username = models.CharField(
+        max_length=150,
+        unique=True,
+        blank=True,
+        null=True,  # Allow NULL values
+        help_text='Optional. 150 characters or fewer.',
+        validators=[],
+    )
+    email = models.CharField(max_length=100, unique=True, null=False)
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 
 # TODO : Fix this  ... Updates n' shit ... fields 
 class Conversation(models.Model):
-    user1 = models.ForeignKey(User, related_name="user1", on_delete=models.CASCADE)
-    user2 = models.ForeignKey(User, related_name="user2", on_delete=models.CASCADE)
+    participants = models.ManyToManyField(User, related_name='conversations')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
