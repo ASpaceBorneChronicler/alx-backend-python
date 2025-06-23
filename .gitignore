@@ -31,3 +31,7 @@ __pyache__/
 *.mo
 *.pyc
 *.pyo
+
+messaging_app/chat_experiment/
+test_folder/
+scripts/
