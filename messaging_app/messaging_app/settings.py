@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-@uue5i1wb%o25)8b#n_h7uu7p(#o68d%*wlbon(o#b3cu2g*oa
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['testserver', '127.0.0.1']
 
 
 # Application definition
@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'chats',
     'django_extensions',
-    'chat_experiment',
 
 ]
 
@@ -125,7 +124,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-AUTH_USER_MODEL = 'chat_experiment.User'
+AUTH_USER_MODEL = 'chats.User'
 
 # 
 
